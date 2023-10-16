@@ -1,7 +1,14 @@
 import { createClient } from "next-sanity";
-import { Product } from "@/sanity/types/Projects";
+import { Product, Item } from "@/sanity/types/Projects";
 import clientConfig from "./config/client-config";
-import { GET_PAGE, GET_PAGES, GET_PRODUCT, GET_PRODUCTS } from "./queries";
+import {
+  GET_PAGE,
+  GET_PAGES,
+  GET_PRODUCT,
+  GET_PRODUCTS,
+  GET_ITEMS,
+  GET_ITEM,
+} from "./queries";
 import { Page } from "./types/Page";
 
 export async function getProducts(): Promise<Product[]> {
@@ -17,4 +24,11 @@ export async function getPages(): Promise<Page[]> {
 }
 export async function getPage(slug: string): Promise<Page> {
   return createClient(clientConfig).fetch(GET_PAGE, { slug });
+}
+
+export async function getItems(): Promise<Item[]> {
+  return createClient(clientConfig).fetch(GET_ITEMS);
+}
+export async function getItem(slug: string): Promise<Item> {
+  return createClient(clientConfig).fetch(GET_ITEM, { slug });
 }

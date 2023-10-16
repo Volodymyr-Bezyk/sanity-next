@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getProducts } from "@/sanity/sanity-utils";
+import { getItems } from "@/sanity/sanity-utils";
 
 export const revalidate = 10;
 
 export default async function Home() {
-  const products = await getProducts();
+  const products = await getItems();
 
   return (
     <div>
@@ -20,9 +20,15 @@ export default async function Home() {
             href={`sale/${product.slug}`}
             className="p-5 border border-gray-500 rounded-lg hover:border-blue-500 focus:border-blue-500 hover:scale-110 focus:scale-105 transition"
           >
-            <div className="max-w-max font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-              {product.name}
+            <div className=" flex items-center justify-between">
+              <div className="max-w-max font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+                {product.name}
+              </div>
+              <p className=" max-w-max font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+                {`${product.price}$`}
+              </p>
             </div>
+
             {product.image && (
               <Image
                 src={product.image}

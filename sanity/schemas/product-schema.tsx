@@ -31,9 +31,6 @@ const product = {
       name: "price",
       title: "Price",
       type: "number",
-      // validation: (Rule) =>
-      //   Rule.required().warning(`A title shouldn't be more than 120 characters.`),
-      options: { required: true },
     },
   ],
 };

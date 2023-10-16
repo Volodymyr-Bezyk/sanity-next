@@ -36,3 +36,23 @@ title,
 "slug":slug.current,
 content
     }`;
+
+export const GET_ITEMS = groq`*[_type == "item"]{
+_id,
+_createdAt,
+name,
+"slug":slug.current,
+"image":image.asset -> url,
+content,
+price
+    }`;
+
+export const GET_ITEM = groq`*[_type == "item" && slug.current == $slug][0]{
+_id,
+_createdAt,
+name,
+"slug":slug.current,
+"image":image.asset -> url,
+content,
+price
+    }`;
