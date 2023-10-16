@@ -1,6 +1,6 @@
-const project = {
-  name: "project",
-  title: "Projects",
+const product = {
+  name: "product",
+  title: "Products",
   type: "document",
   fields: [
     {
@@ -22,17 +22,20 @@ const project = {
       fields: [{ name: "alt", title: "Alt", type: "string" }],
     },
     {
-      name: "url",
-      title: "URL",
-      type: "url",
-    },
-    {
       name: "content",
       title: "Content",
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "price",
+      title: "Price",
+      type: "number",
+      // validation: (Rule) =>
+      //   Rule.required().warning(`A title shouldn't be more than 120 characters.`),
+      options: { required: true },
+    },
   ],
 };
 
-export default project;
+export default product;

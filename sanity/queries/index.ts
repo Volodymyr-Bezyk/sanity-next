@@ -1,23 +1,25 @@
 import { groq } from "next-sanity";
 
-export const GET_PROJECTS = groq`*[_type == "project"]{
+export const GET_PRODUCTS = groq`*[_type == "project"]{
 _id,
 _createdAt,
 name,
 "slug":slug.current,
 "image":image.asset -> url,
 url,
-content
+content,
+price
     }`;
 
-export const GET_PROJECT = groq`*[_type == "project" && slug.current == $slug][0]{
+export const GET_PRODUCT = groq`*[_type == "project" && slug.current == $slug][0]{
 _id,
 _createdAt,
 name,
 "slug":slug.current,
 "image":image.asset -> url,
 url,
-content
+content,
+price
     }`;
 
 export const GET_PAGES = groq`*[_type == "page"]{
