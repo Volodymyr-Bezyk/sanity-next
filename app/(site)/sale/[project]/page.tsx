@@ -26,9 +26,9 @@ const Project = async ({ params }: Props) => {
         <Image
           src={item.image}
           alt={item.name}
-          height={1080}
-          width={1920}
-          className="h-[500px] max-w-3xl  p-5  border-2 border-gray-700 object-contain rounded-xl"
+          height={650}
+          width={650}
+          className="h-[650px] md:w-[650px] max-w-3xl  p-5  border-2 border-gray-700 object-contain rounded-xl shrink-0"
         />
         {/* content */}
         <div className="text-lg text-gray-700 flex flex-col justify-between">
