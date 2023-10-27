@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react";
-import { getProduct, getItem } from "@/sanity/sanity-utils";
+import { getItem } from "@/sanity/sanity-utils";
 
 import React from "react";
 import Image from "next/image";
